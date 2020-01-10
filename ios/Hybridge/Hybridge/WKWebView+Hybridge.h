@@ -1,5 +1,5 @@
 //
-//  UIWebView+Hybridge.h
+//  WKWebView+Hybridge.h
 //  Hybridge
 //
 //  Copyright (c) 2014 Telefonica I+D. All rights reserved.
@@ -7,17 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+@import WebKit;
 
-@interface UIWebView (Hybridge)
+@interface WKWebView (Hybridge)
 
 /**
  Fires a Hybridge event in the receiver.
  
  @param event The event to fire.
  @param data A dictionary containing data to pass along with the event.
- 
- @return The result of firing the event.
  */
-- (NSString *)hyb_fireEvent:(NSString *)event data:(NSDictionary *)data;
+- (void)hyb_fireEvent:(NSString *)event data:(NSDictionary *)data;
 
 @end

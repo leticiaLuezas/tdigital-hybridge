@@ -23,8 +23,8 @@
 		992DEDD818ED9CF0005CD768 /* HYBURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 992DEDD618ED9CF0005CD768 /* HYBURLProtocol.m */; };
 		9947021218EDB672007A6D8E /* HYBWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9947021018EDB672007A6D8E /* HYBWebViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9947021318EDB672007A6D8E /* HYBWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9947021118EDB672007A6D8E /* HYBWebViewController.m */; };
-		9960C8AC18EE914600FEC7DB /* UIWebView+Hybridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 9960C8AA18EE914600FEC7DB /* UIWebView+Hybridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9960C8AD18EE914600FEC7DB /* UIWebView+Hybridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 9960C8AB18EE914600FEC7DB /* UIWebView+Hybridge.m */; };
+		9960C8AC18EE914600FEC7DB /* WKWebView+Hybridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 9960C8AA18EE914600FEC7DB /* WKWebView+Hybridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9960C8AD18EE914600FEC7DB /* WKWebView+Hybridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 9960C8AB18EE914600FEC7DB /* WKWebView+Hybridge.m */; };
 		9960C8B018EE971E00FEC7DB /* NSHTTPURLResponse+Hybridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 9960C8AE18EE971E00FEC7DB /* NSHTTPURLResponse+Hybridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9960C8B118EE971E00FEC7DB /* NSHTTPURLResponse+Hybridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 9960C8AF18EE971E00FEC7DB /* NSHTTPURLResponse+Hybridge.m */; };
 		9960C8D118EEC2CE00FEC7DB /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9960C8C918EEC2CE00FEC7DB /* libOCMock.a */; };
@@ -77,8 +77,8 @@
 		992DEDD618ED9CF0005CD768 /* HYBURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYBURLProtocol.m; sourceTree = "<group>"; };
 		9947021018EDB672007A6D8E /* HYBWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYBWebViewController.h; sourceTree = "<group>"; };
 		9947021118EDB672007A6D8E /* HYBWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYBWebViewController.m; sourceTree = "<group>"; };
-		9960C8AA18EE914600FEC7DB /* UIWebView+Hybridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+Hybridge.h"; sourceTree = "<group>"; };
-		9960C8AB18EE914600FEC7DB /* UIWebView+Hybridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+Hybridge.m"; sourceTree = "<group>"; };
+		9960C8AA18EE914600FEC7DB /* WKWebView+Hybridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WKWebView+Hybridge.h"; sourceTree = "<group>"; };
+		9960C8AB18EE914600FEC7DB /* WKWebView+Hybridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WKWebView+Hybridge.m"; sourceTree = "<group>"; };
 		9960C8AE18EE971E00FEC7DB /* NSHTTPURLResponse+Hybridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSHTTPURLResponse+Hybridge.h"; sourceTree = "<group>"; };
 		9960C8AF18EE971E00FEC7DB /* NSHTTPURLResponse+Hybridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSHTTPURLResponse+Hybridge.m"; sourceTree = "<group>"; };
 		9960C8C918EEC2CE00FEC7DB /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
@@ -163,8 +163,8 @@
 				992DEDD618ED9CF0005CD768 /* HYBURLProtocol.m */,
 				9947021018EDB672007A6D8E /* HYBWebViewController.h */,
 				9947021118EDB672007A6D8E /* HYBWebViewController.m */,
-				9960C8AA18EE914600FEC7DB /* UIWebView+Hybridge.h */,
-				9960C8AB18EE914600FEC7DB /* UIWebView+Hybridge.m */,
+				9960C8AA18EE914600FEC7DB /* WKWebView+Hybridge.h */,
+				9960C8AB18EE914600FEC7DB /* WKWebView+Hybridge.m */,
 				9960C8AE18EE971E00FEC7DB /* NSHTTPURLResponse+Hybridge.h */,
 				9960C8AF18EE971E00FEC7DB /* NSHTTPURLResponse+Hybridge.m */,
 				9960C8D918EEDB8000FEC7DB /* NSString+Hybridge.h */,
@@ -235,7 +235,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9960C8AC18EE914600FEC7DB /* UIWebView+Hybridge.h in Headers */,
+				9960C8AC18EE914600FEC7DB /* WKWebView+Hybridge.h in Headers */,
 				992DEDCC18ED97FB005CD768 /* Hybridge.h in Headers */,
 				9960C8DB18EEDB8000FEC7DB /* NSString+Hybridge.h in Headers */,
 				9947021218EDB672007A6D8E /* HYBWebViewController.h in Headers */,
@@ -292,15 +292,16 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = HYB;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 1030;
 				ORGANIZATIONNAME = "Telefonica I+D";
 			};
 			buildConfigurationList = 992DED9C18ED963A005CD768 /* Build configuration list for PBXProject "Hybridge" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 992DED9818ED963A005CD768;
 			productRefGroup = 992DEDA218ED963A005CD768 /* Products */;
@@ -333,7 +334,7 @@
 				9960C8B118EE971E00FEC7DB /* NSHTTPURLResponse+Hybridge.m in Sources */,
 				9947021318EDB672007A6D8E /* HYBWebViewController.m in Sources */,
 				992DEDD018ED9BA7005CD768 /* HYBBridge.m in Sources */,
-				9960C8AD18EE914600FEC7DB /* UIWebView+Hybridge.m in Sources */,
+				9960C8AD18EE914600FEC7DB /* WKWebView+Hybridge.m in Sources */,
 				9960C8DC18EEDB8000FEC7DB /* NSString+Hybridge.m in Sources */,
 				992DEDD818ED9CF0005CD768 /* HYBURLProtocol.m in Sources */,
 			);
@@ -376,21 +377,36 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -403,7 +419,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -413,28 +429,42 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -446,7 +476,7 @@
 				DSTROOT = /tmp/Hybridge.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Hybridge/Hybridge-Prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -459,7 +489,7 @@
 				DSTROOT = /tmp/Hybridge.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Hybridge/Hybridge-Prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -498,6 +528,7 @@
 					"\"$(SRCROOT)/OCMock/libOCMock.a\"",
 					"-ObjC",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "es.tid.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -531,6 +562,7 @@
 					"\"$(SRCROOT)/OCMock/libOCMock.a\"",
 					"-ObjC",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "es.tid.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
 			};

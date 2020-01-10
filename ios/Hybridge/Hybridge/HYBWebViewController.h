@@ -10,12 +10,13 @@
 
 #import "HYBBridge.h"
 
+@import WebKit;
 /**
  A view controller that manages a web view and the bridge to communicate with it.
  */
-@interface HYBWebViewController : UIViewController <UIWebViewDelegate, HYBBridgeDelegate>
+@interface HYBWebViewController : UIViewController <WKNavigationDelegate, HYBBridgeDelegate>
 
-@property (strong, nonatomic, readonly) UIWebView *webView;
+@property (strong, nonatomic, readonly) WKWebView *webView;
 @property (strong, nonatomic, readonly) HYBBridge *bridge;
 
 - (id)initWithURL:(NSURL *)url;

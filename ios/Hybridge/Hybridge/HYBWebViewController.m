@@ -19,15 +19,15 @@
 
 #pragma mark - Properties
 
-- (UIWebView *)webView {
-    return (UIWebView *)self.view;
+- (WKWebView *)webView {
+    return (WKWebView *)self.view;
 }
 
 #pragma mark - Lifecycle
 
 - (void)dealloc {
     [self.webView stopLoading];
-    self.webView.delegate = nil;
+    self.webView.navigationDelegate = nil;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -54,12 +54,12 @@
 - (void)loadView {
     if ([self nibName]) {
         [super loadView];
-        NSAssert([self.view isKindOfClass:[UIWebView class]], @"HYBWebViewController view must be a UIWebView instance.");
+        NSAssert([self.view isKindOfClass:[WKWebView class]], @"HYBWebViewController view must be a WKWebView instance.");
     } else {
-        UIWebView *view = [[UIWebView alloc] init];
+        WKWebView *view = [[WKWebView alloc] init];
         view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        view.scalesPageToFit = YES;
-        view.delegate = self;
+        //view.scalesPageToFit = YES;
+        view.navigationDelegate = self;
         
         self.view = view;
     }
@@ -96,18 +96,21 @@
 - (void)webViewDidFailLoadWithError:(NSError *)error {
 }
 
-#pragma mark - UIWebViewDelegate
+#pragma mark - WKNavigationDelegate
 
-- (void)webViewDidStartLoad:(UIWebView *)webView {
+- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation {
     [self webViewDidStartLoad];
 }
 
-- (void)webViewDidFinishLoad:(UIWebView *)webView {
-    [self.bridge prepareWebView:webView withRequestScheme:self.webView.request.URL.scheme];
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
+    [self.bridge prepareWebView:webView withRequestScheme:self.webView.URL.scheme];
     [self webViewDidFinishLoad];
 }
 
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+- (void)        webView:(WKWebView *)webView
+      didFailNavigation:(null_unspecified WKNavigation *)navigation
+              withError:(nonnull NSError *)error
+{
     [self webViewDidFailLoadWithError:error];
 }
 
