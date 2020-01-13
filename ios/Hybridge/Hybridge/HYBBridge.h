@@ -59,8 +59,9 @@
  
  @param webView The `WKWebView` to configure.
  @param scheme The forwarding requests scheme.
+ @return The result of preparing the web view.
  */
-- (void)prepareWebView:(WKWebView *)webView withRequestScheme:(NSString *)scheme;
+- (NSString *)prepareWebView:(WKWebView *)webView withRequestScheme:(NSString *)scheme;
 
 /**
  This method is called by the URL loading system when a Hybridge request is made.

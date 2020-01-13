@@ -122,7 +122,7 @@ static HYBBridge *activeBridge;
     return self;
 }
 
-- (void)prepareWebView:(WKWebView *)webView withRequestScheme:(NSString *)scheme {
+- (NSString *)prepareWebView:(WKWebView *)webView withRequestScheme:(NSString *)scheme {
     NSParameterAssert(webView);
     
     self.webView = webView;
@@ -149,7 +149,7 @@ static HYBBridge *activeBridge;
     NSString *customDataString = [NSString hyb_JSONStringWithObject:customData];
 
     NSString *javascript = [NSString stringWithFormat:kFormat, @([[self class] majorVersion]), @([[self class] minorVersion]), customDataString, actionsString, eventsString];
-    [webView evaluateJavaScript:javascript completionHandler:nil];
+    return [webView stringByEvaluatingJavaScriptFromString:javascript];
 }
 
 - (void)dispatchAction:(NSString *)action

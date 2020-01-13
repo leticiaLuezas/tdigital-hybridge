@@ -16,7 +16,11 @@
  
  @param event The event to fire.
  @param data A dictionary containing data to pass along with the event.
+ 
+ @return The result of firing the event.
  */
-- (void)hyb_fireEvent:(NSString *)event data:(NSDictionary *)data;
+- (NSString *)hyb_fireEvent:(NSString *)event data:(NSDictionary *)data;
+
+- (NSString *)stringByEvaluatingJavaScriptFromString:(NSString *)script;
 
 @end
