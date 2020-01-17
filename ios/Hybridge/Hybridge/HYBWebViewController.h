@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <WebKit/WebKit.h>
 
 #import "HYBBridge.h"
 
-@import WebKit;
 /**
  A view controller that manages a web view and the bridge to communicate with it.
  */

@@ -8,9 +8,12 @@
 
 #import "HYBWebViewController.h"
 #import "HYBBridge.h"
+#import "NSHTTPURLResponse+Hybridge.h"
+#import "HYBURLSchemeHandler.h"
 
 @interface HYBWebViewController ()
 
+@property (strong, nonatomic, readwrite) WKWebView *webView;
 @property (strong, nonatomic) NSURL *URL;
 
 @end
@@ -18,10 +21,6 @@
 @implementation HYBWebViewController
 
 #pragma mark - Properties
-
-- (WKWebView *)webView {
-    return (WKWebView *)self.view;
-}
 
 #pragma mark - Lifecycle
 
@@ -51,24 +50,21 @@
     return self;
 }
 
-- (void)loadView {
-    if ([self nibName]) {
-        [super loadView];
-        NSAssert([self.view isKindOfClass:[WKWebView class]], @"HYBWebViewController view must be a WKWebView instance.");
-    } else {
-        WKWebView *view = [[WKWebView alloc] init];
-        view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        //view.scalesPageToFit = YES;
-        view.navigationDelegate = self;
-        
-        self.view = view;
-    }
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     if (self.URL) {
+        HYBURLSchemeHandler *schemeHandler = [HYBURLSchemeHandler new];
+        WKWebViewConfiguration *configuration = [WKWebViewConfiguration new];
+//        [configuration setURLSchemeHandler:schemeHandler forURLScheme:@"hybridge"];
+//        id<WKURLSchemeHandler> test = [configuration urlSchemeHandlerForURLScheme:@"https"];
+     
+        
+        self.webView = [[WKWebView alloc] initWithFrame:self.view.frame configuration:configuration];
+        self.webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        //view.scalesPageToFit = YES;
+        self.webView.navigationDelegate = self;
+        [self.view addSubview:self.webView];
         [self.webView loadRequest:[NSURLRequest requestWithURL:self.URL]];
     }
 }
@@ -102,6 +98,15 @@
     [self webViewDidStartLoad];
 }
 
+- (void)webView:(WKWebView *)webView didReceiveServerRedirectForProvisionalNavigation:(null_unspecified WKNavigation *)navigation {
+    NSLog(@"didReceiveServerRedirectForProvisionalNavigation %@ webViewURL: %@", navigation, webView.URL);
+}
+
+- (void)webView:(WKWebView *)webView didCommitNavigation:(null_unspecified WKNavigation *)navigation {
+       NSLog(@"didCommitNavigation %@ webViewURL: %@", navigation, webView.URL);
+}
+
+
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
     [self.bridge prepareWebView:webView withRequestScheme:self.webView.URL.scheme];
     [self webViewDidFinishLoad];
@@ -112,6 +117,20 @@
               withError:(nonnull NSError *)error
 {
     [self webViewDidFailLoadWithError:error];
+}
+
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
+    NSLog(@"decidePolicyForNavigationAction host response: %@", navigationAction.request.URL.host.lowercaseString);
+        if ([webView.URL.host.lowercaseString isEqualToString:HYBHostName]) {
+            decisionHandler(WKNavigationActionPolicyCancel);
+            return;
+        }
+     decisionHandler(WKNavigationActionPolicyAllow);
+}
+
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler {
+    NSLog(@"decidePolicyForNavigationResponse host response: %@", navigationResponse.response.URL.host.lowercaseString);
+    decisionHandler(WKNavigationResponsePolicyAllow);
 }
 
 #pragma mark - HYBBridgeDelegate
